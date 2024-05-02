@@ -15,12 +15,10 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   "parserOptions": {
-    "ecmaVersion": 'latest',
-    "sourceType": "module",
-    "project": "tsconfig.json",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
   },
   plugins: ['react-refresh', "react", "import", "jsx-a11y", "@typescript-eslint"],
   rules: {
@@ -31,8 +29,8 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    commonjs: true / false,
-    amd: true / false,
+    "import/no-unresolved": 0,
+    "import/default": "off",
   },
   "settings": {
     "react": {
